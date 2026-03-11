@@ -1,0 +1,1 @@
+Hadoop and MapReduce are used

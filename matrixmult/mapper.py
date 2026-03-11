@@ -2,14 +2,14 @@
 import sys
 
 for line in sys.stdin:
-    parts = line.strip().split()
+    m, i, j, v = line.strip().split()
+    i = int(i)
+    j = int(j)
+    v = int(v)
 
-    matrix = parts[0]
-    i = int(parts[1])
-    j = int(parts[2])
-    value = int(parts[3])
-
-    if matrix == "A":
-        print((i, j), "\t", ("A", value))
+    if m == "A":
+        for col in range(2):
+            print(f"{i},{col}\tA,{j},{v}")
     else:
-        print((i, j), "\t", ("B", value))
+        for row in range(2):
+            print(f"{row},{j}\tB,{i},{v}")

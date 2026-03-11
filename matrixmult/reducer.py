@@ -2,27 +2,33 @@
 import sys
 
 current_key = None
-values = []
+A = {}
+B = {}
 
 for line in sys.stdin:
     key, val = line.strip().split("\t")
+    parts = val.split(",")
 
-    if key == current_key:
-        values.append(val)
-    else:
-        if current_key:
+    if key != current_key:
+        if current_key is not None:
             result = 0
-            for v in values:
-                parts = v.strip("() ").split(",")
-                result += int(parts[1])
+            for k in A:
+                if k in B:
+                    result += A[k] * B[k]
             print(current_key, result)
 
         current_key = key
-        values = [val]
+        A = {}
+        B = {}
 
-if current_key:
+    if parts[0] == "A":
+        A[int(parts[1])] = int(parts[2])
+    else:
+        B[int(parts[1])] = int(parts[2])
+
+if current_key is not None:
     result = 0
-    for v in values:
-        parts = v.strip("() ").split(",")
-        result += int(parts[1])
+    for k in A:
+        if k in B:
+            result += A[k] * B[k]
     print(current_key, result)

@@ -1,0 +1,1 @@
+Hadoop is used in big data processing and the MapReduce framework

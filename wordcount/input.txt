@@ -1,0 +1,3 @@
+Hadoop is used for big data processing.
+MapReduce is part of Hadoop.
+Big data systems use MapReduce.

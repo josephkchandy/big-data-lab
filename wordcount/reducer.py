@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 import sys
 
-current_word = None
+word = None
 count = 0
 
 for line in sys.stdin:
-    word, value = line.strip().split("\t")
-    value = int(value)
+    key,val = line.strip().split("\t")
+    val = int(val)
 
-    if current_word == word:
-        count += value
+    if key == word:
+        count += val
     else:
-        if current_word:
-            print(f"{current_word}\t{count}")
-        current_word = word
-        count = value
+        if word:
+            print(word,count)
+        word = key
+        count = val
 
-if current_word:
-    print(f"{current_word}\t{count}")
+if word:
+    print(word,count)

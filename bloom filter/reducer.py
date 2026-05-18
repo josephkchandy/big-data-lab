@@ -6,7 +6,7 @@ bits = [0]*size
 
 for line in sys.stdin:
     key, val = line.strip().split("\t")
-    pos = int(key)
-    bits[pos] = 1
+    key = int(key)
+    bits[key] = 1
 
 print("Bloom Filter:", bits)
